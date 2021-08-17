@@ -5,8 +5,8 @@ provider "intersight" {
 }
 ####
 
-module "iks" {
-    source = "./modules/iks"
+module "iks_deploy" {
+    source = "./modules/iks_deploy"
 }
 
 
