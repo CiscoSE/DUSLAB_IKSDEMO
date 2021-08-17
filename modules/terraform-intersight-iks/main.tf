@@ -1,6 +1,5 @@
 module "terraform-intersight-iks" {
   
-  source = "terraform-cisco-modules/iks/intersight//modules/terraform-intersight-iks/"
   cluster_name = "iksITS001"
   # cluster_action   = "Deploy"
   vc_target_name   = "dcdus-co-vcsa01.cisco.com"
