@@ -1,5 +1,5 @@
 provider "intersight" {
-  apikey    = "moepmoepmoep"
+  apikey    = var.apikey
   secretkey = var.secretkey
   endpoint  = var.endpoint
 }
