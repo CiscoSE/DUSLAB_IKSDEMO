@@ -1,7 +1,7 @@
 module "terraform-intersight-iks" {
   
   cluster_name = "iksITS001"
-  # cluster_action   = "Deploy"
+  cluster_action   = "Deploy"
   vc_target_name   = "dcdus-co-vcsa01.cisco.com"
   vc_portgroup     = ["sgplayground|iks_AP|iksits001_EPG"]
   vc_datastore     = "ISCSI-NETAPP001"
