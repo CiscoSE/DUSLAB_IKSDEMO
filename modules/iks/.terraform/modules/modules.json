@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"terraform-intersight-iks","Source":"terraform-cisco-modules/iks/intersight//modules/terraform-intersight-iks/","Version":"1.0.2","Dir":".terraform/modules/terraform-intersight-iks/modules/terraform-intersight-iks"}]}

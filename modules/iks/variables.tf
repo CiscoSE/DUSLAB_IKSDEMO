@@ -10,7 +10,7 @@ variable "endpoint" {
   type        = string
   description = "API Endpoint URL"
   default     = "https://www.intersight.com"
-}
+}#
 variable "organization" {
   type        = string
   description = "Organization Name"
