@@ -16,7 +16,7 @@ module "terraform-intersight-iks" {
   ip_gateway          = "10.1.179.1"
   ntp_servers         = ["10.1.11.11"]
   dns_servers         = ["10.1.11.11"]
-
+#
   addons_list = [{
     addon_policy_name = "dashboard"
     addon             = "kubernetes-dashboard"
