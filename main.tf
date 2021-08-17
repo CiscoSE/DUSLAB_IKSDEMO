@@ -1,7 +1,7 @@
 provider "intersight" {
   apikey    = var.apikey
   secretkey = var.secretkey
-  endpoint  = var.endpoint
+  endpoint  = "https://5c5aff1a68783235342beca8.intersight.com"
 }
 ####
 
