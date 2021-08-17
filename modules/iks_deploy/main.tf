@@ -52,6 +52,6 @@ module "iks_deploy" {
   master_count   = 3
   load_balancers = 1
   # Organization and Tag
-#  organization = var.organization
+  organization = "default"
 #  tags         = var.tags
 }
