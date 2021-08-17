@@ -1,4 +1,4 @@
-module "iks_deploy" {
+module "terraform-intersight-iks" {
   source = "terraform-cisco-modules/iks/intersight"
   cluster_name = "iksITS001"
   # cluster_action   = "Deploy"

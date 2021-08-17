@@ -5,7 +5,7 @@ provider "intersight" {
 }
 ####
 
-module "iks_deploy" {
+module "terraform-intersight-iks" {
     source = "./modules/iks_deploy"
     apikey = "${var.apikey}"
     secretkey = "${var.secretkey}"
