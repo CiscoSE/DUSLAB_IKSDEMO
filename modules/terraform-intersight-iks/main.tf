@@ -1,13 +1,6 @@
-
-
-
 module "terraform-intersight-iks" {
-  provider "intersight" {
-  apikey    = var.apikey
-  secretkey = var.secretkey
-  endpoint  = "https://intersight.com"
-}
-  source = "terraform-cisco-modules/iks/intersight"
+  
+  source = "terraform-cisco-modules/iks/intersight//modules/terraform-intersight-iks/"
   cluster_name = "iksITS001"
   # cluster_action   = "Deploy"
   vc_target_name   = "dcdus-co-vcsa01.cisco.com"
