@@ -12,6 +12,7 @@ module "terraform-intersight-iks" {
     vc_password = "${var.vc_password}"
     ssh_user = "${var.ssh_user}"
     ssh_key = "${var.ssh_key}"
+    organziation = "${var.organization}"
 
 }
 
