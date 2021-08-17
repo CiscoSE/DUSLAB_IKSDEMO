@@ -7,6 +7,7 @@ provider "intersight" {
 
 module "iks_deploy" {
     source = "./modules/iks_deploy"
+    apikey = "${var.apikey}"
 }
 
 
