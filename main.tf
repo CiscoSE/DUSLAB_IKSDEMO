@@ -8,6 +8,11 @@ provider "intersight" {
 module "iks_deploy" {
     source = "./modules/iks_deploy"
     apikey = "${var.apikey}"
+    secretkey = "${var.secretkey}"
+    vc_password = "${var.vc_password}"
+    ssh_user = "${var.ssh_user}"
+    ssh_key = "${var.ssh_key}"
+
 }
 
 
