@@ -1,3 +1,10 @@
+provider "intersight" {
+  apikey    = var.apikey
+  secretkey = var.secretkey
+  endpoint  = "https://intersight.com"
+}
+
+
 module "terraform-intersight-iks" {
   source = "terraform-cisco-modules/iks/intersight"
   cluster_name = "iksITS001"
