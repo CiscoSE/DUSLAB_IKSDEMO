@@ -7,7 +7,7 @@ resource "intersight_kubernetes_cluster_profile" "intersight_k8s_cluster_profile
   description = "Terraform deployed K8s Cluster" 
   name        = var.clusterName
   type        = "instance"
-  action      = "Deploy"
+  action      = "Unassign"
   config_context {
     control_action = "Deploy"
     error_state    = "Pre-config-error"
