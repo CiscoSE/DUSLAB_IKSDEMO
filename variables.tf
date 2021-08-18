@@ -103,3 +103,8 @@ variable "controlPlaneDesiredSize" {
 variable "controlPlaneMaxSize" {
   type= string
 }
+
+
+variable "k8s_version" {
+  type= string
+}
