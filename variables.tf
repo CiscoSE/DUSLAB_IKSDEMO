@@ -57,9 +57,16 @@ variable "netmask" {
   type        = string
 }
 variable "primaryDNS" {
-    type        = list(string)
+    type = string
 }
 
+
+
+
+#### Sysconfig Variables
+variable "DNSServers" {
+    type = list(string)
+}
 variable "DNSDomainName" {
   type = string
 }

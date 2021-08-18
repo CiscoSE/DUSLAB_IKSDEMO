@@ -40,7 +40,7 @@ resource "intersight_ippool_pool" "IPPool" {
     object_type = "ippool.IpV4Config"
     gateway     = var.gateway
     netmask     = var.netmask
-    primary_dns = var.primaryDNS
+    primary_dns = var.DNSServers
   }
   ip_v4_blocks {
     from = var.IPPoolFromIP
