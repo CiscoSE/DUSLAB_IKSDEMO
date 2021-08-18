@@ -138,7 +138,7 @@ resource "intersight_kubernetes_version_policy" "k8s_version_policy" {
   nr_version {
 
     object_type = "kubernetes.Version"
-    moid        = data.intersight_kubernetes_version.k8s_version_policy.moid
+    moid        = data.intersight_kubernetes_version.k8s_version.moid
 
   }
 
