@@ -28,7 +28,7 @@ resource "intersight_ippool_pool" "IPPool" {
   description      = "IP Pool for K8s Cluster ${var.clusterName}"
   assignment_order = "sequential"
   ip_v4_config {
-    moid        = var.ippool_ip_v4_config
+ #   moid        = var.ippool_ip_v4_config
     object_type = "ippool.IpV4Config"
     gateway     = var.gateway
     netmask     = var.netmask
