@@ -15,6 +15,7 @@ module "intersight-cluster-iks001" {
     organization = var.organization
   ### Cluster Config
     clusterName = var.clusterName
+    loadBalancerCount = var.loadBalancerCount
   ### IP Pool Config  
     gateway = var.gateway
     netmask = var.netmask

@@ -40,6 +40,11 @@ variable "tags" {
   default = []
 }
 
+variable "loadBalancerCount" {
+  type = string
+  default = 1
+}
+
 
 #### IP Pool Variables
 

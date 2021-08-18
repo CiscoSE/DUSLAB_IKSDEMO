@@ -20,6 +20,14 @@ resource "intersight_kubernetes_cluster_profile" "intersight_k8s_cluster_profile
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.orgID.results.0.moid
   }
+  ### Management Config
+  management_config {
+    load_balancer_count = var.loadBalancerCount
+    ssh_keys = [
+      var.ssh_key
+    ]
+    ssh_user = var.ssh_user
+  }
   ### IP Pool Association
   cluster_ip_pools {
     moid = intersight_ippool_pool.IPPool.moid

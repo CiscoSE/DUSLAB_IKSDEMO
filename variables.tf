@@ -39,7 +39,10 @@ variable "tags" {
   type    = list(map(string))
   default = []
 }
-
+variable "loadBalancerCount" {
+  type = string
+  default = 1
+}
 
 #### IP Pool Variables
 
