@@ -40,7 +40,7 @@ resource "intersight_ippool_pool" "IPPool" {
     object_type = "ippool.IpV4Config"
     gateway     = var.gateway
     netmask     = var.netmask
-    primary_dns = var.DNSServers
+    primary_dns = var.primaryDNS
   }
   ip_v4_blocks {
     from = var.IPPoolFromIP
@@ -57,8 +57,8 @@ resource "intersight_ippool_pool" "IPPool" {
 resource "intersight_kubernetes_sys_config_policy" "kubernetes_sys_config_policy1" {
   description     = "Profile for K8s Cluster ${var.clusterName}"
   name            = "SYSCONFIGPOL-${var.clusterName}"
-  dns_servers     = var.primaryDNS
-  ntp_servers     = var.primaryDNS
+  dns_servers     = var.DNSServers
+  ntp_servers     = var.NTPServers
   timezone        = "Europe/Berlin"
   dns_domain_name = var.DNSDomainName
   

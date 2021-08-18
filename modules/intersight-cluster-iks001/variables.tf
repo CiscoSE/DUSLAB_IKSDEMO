@@ -70,3 +70,7 @@ variable "DNSDomainName" {
 variable "DNSServers" {
     type = list(string)
 }
+
+variable "NTPServers" {
+    type = list(string)
+}

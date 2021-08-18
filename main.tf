@@ -21,7 +21,10 @@ module "intersight-cluster-iks001" {
     primaryDNS = var.primaryDNS
     IPPoolFromIP = var.IPPoolFromIP
     IPPoolSize = var.IPPoolSize
+  ### Sysconfig Config 
     DNSDomainName = var.DNSDomainName
+    DNSServers = var.DNSServers
+    NTPServers = var.NTPServers
 
 
 }
