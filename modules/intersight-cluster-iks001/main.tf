@@ -1,7 +1,7 @@
 
 resource "intersight_kubernetes_cluster_profile" "intersight_k8s_cluster_profile" {
   description = "Terraform deployed K8s Cluster" 
-  name        = var.ClusterName
+  name        = var.clusterName
   type        = "instance"
   action      = "Deploy"
   config_context {
