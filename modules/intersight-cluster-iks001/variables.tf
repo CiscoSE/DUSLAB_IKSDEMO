@@ -74,3 +74,14 @@ variable "DNSServers" {
 variable "NTPServers" {
     type = list(string)
 }
+
+
+#### Network Config Variables
+
+variable "podNetworkCidr" {
+  type = string
+}
+
+variable "serviceNetworkCidr" {
+  type = string
+}

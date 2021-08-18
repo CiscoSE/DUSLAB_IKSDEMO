@@ -25,6 +25,11 @@ module "intersight-cluster-iks001" {
     DNSDomainName = var.DNSDomainName
     DNSServers = var.DNSServers
     NTPServers = var.NTPServers
+  ### Network Config
+    podNetworkCidr = var.podNetworkCidr
+    serviceNetworkCidr = var.serviceNetworkCidr
+    
+
 
 
 }

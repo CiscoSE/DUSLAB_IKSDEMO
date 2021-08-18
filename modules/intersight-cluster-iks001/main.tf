@@ -20,13 +20,18 @@ resource "intersight_kubernetes_cluster_profile" "intersight_k8s_cluster_profile
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.orgID.results.0.moid
   }
+  ### IP Pool Association
   cluster_ip_pools {
     moid = intersight_ippool_pool.IPPool.moid
   }
+  ### Sysconfig Association
   sys_config {
     moid = intersight_kubernetes_sys_config_policy.kubernetes_sys_config_policy1.moid
   }
-
+  ### Networkconfig Association
+  net_config{
+     moid = intersight_kubernetes_network_policy.kubernetes_network_policy1.moid
+  }
 }
 
 #### Configure IP Pool
@@ -52,7 +57,7 @@ resource "intersight_ippool_pool" "IPPool" {
   }
 
 }
-##### Sysconfig
+##### Sysconfig Policy
 
 resource "intersight_kubernetes_sys_config_policy" "kubernetes_sys_config_policy1" {
   description     = "Profile for K8s Cluster ${var.clusterName}"
@@ -62,6 +67,22 @@ resource "intersight_kubernetes_sys_config_policy" "kubernetes_sys_config_policy
   timezone        = "Europe/Berlin"
   dns_domain_name = var.DNSDomainName
   
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.orgID.results.0.moid
+  }
+}
+
+
+##### Network Policy
+
+
+resource "intersight_kubernetes_network_policy" "kubernetes_network_policy1" {
+  description = "Profile for K8s Cluster ${var.clusterName}"
+  name        = "NETWORKPOL-${var.clusterName}"
+  cni_type    = var.cniType
+  pod_network_cidr = var.podNetworkCidr
+  service_cidr = var.serviceNetworkCidr
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.orgID.results.0.moid
