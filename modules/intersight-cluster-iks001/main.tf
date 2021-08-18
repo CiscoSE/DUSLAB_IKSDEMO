@@ -21,3 +21,26 @@ resource "intersight_kubernetes_cluster_profile" "intersight_k8s_cluster_profile
 
 }
 
+#### Configure IP Pool
+
+resource "intersight_ippool_pool" "IPPool" {
+  name             = "IPPOOL-${var.clusterName}"
+  description      = "IP Pool for K8s Cluster ${var.clusterName}"
+  assignment_order = "sequential"
+  ip_v4_config {
+    moid        = var.ippool_ip_v4_config
+    object_type = "ippool.IpV4Config"
+    gateway     = var.gateway
+    netmask     = var.netmask
+    primary_dns = var.primaryDNS
+  }
+  ip_v4_blocks {
+    from: var.IPPoolFromIP
+    size: var.IPPoolSize
+  }
+  organization {
+    object_type = "organization.Organization"
+    moid        = var.organization
+  }
+
+}

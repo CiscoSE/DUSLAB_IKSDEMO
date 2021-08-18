@@ -39,3 +39,23 @@ variable "tags" {
   type    = list(map(string))
   default = []
 }
+
+
+#### IP Pool Variables
+
+variable "IPPoolFromIP" {
+  type        = string
+}
+
+variable "IPPoolSize" {
+  type        = string
+}
+variable "gateway" {
+  type        = string
+}
+variable "netmask" {
+  type        = string
+}
+variable "primaryDNS" {
+  type        = string
+}
