@@ -119,10 +119,7 @@ resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_p
     object_type = "kubernetes.ClusterProfile"
     moid        = intersight_kubernetes_cluster_profile.intersight_k8s_cluster_profile.moid
   }
-  organization {
-    object_type = "organization.Organization"
-    moid        = data.intersight_organization_organization.orgID.results.0.moid
-  }
+
 
 }
 
