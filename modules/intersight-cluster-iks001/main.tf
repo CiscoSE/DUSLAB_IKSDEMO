@@ -1,5 +1,5 @@
 
-resource "intersight_kubernetes_cluster_profile" var.clusterName {
+resource "intersight_kubernetes_cluster_profile" "${var.clusterName}" {
   description = "Terraform deployed K8s Cluster" 
   name        = var.ClusterName
   type        = "instance"
