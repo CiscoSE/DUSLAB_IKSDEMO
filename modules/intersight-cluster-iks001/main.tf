@@ -127,7 +127,7 @@ resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_p
 }
 
 #### Version Policy
-resource "intersight_kubernetes_version" "kubernetes_version1" {
+data "intersight_kubernetes_version" "kubernetes_version1" {
 
   kubernetes_version = var.k8sVersion
 
