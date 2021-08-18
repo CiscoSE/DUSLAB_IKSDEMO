@@ -135,7 +135,7 @@ resource "intersight_kubernetes_version" "kubernetes_version" {
 
 resource "intersight_kubernetes_version_policy" "k8s_version_policy" {
 
-  name = "Kubernetes-Version-${kubernetes_version}"
+  name = "Kubernetes-Version-${var.k8sVersion}"
   nr_version {
 
     object_type = "kubernetes.Version"
