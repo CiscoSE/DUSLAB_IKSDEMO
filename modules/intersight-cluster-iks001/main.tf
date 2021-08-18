@@ -130,6 +130,10 @@ resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_p
 resource "intersight_kubernetes_version" "kubernetes_version" {
 
   kubernetes_version = var.k8sVersion
+    organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.orgID.results.0.moid
+  }
 }
 
 resource "intersight_kubernetes_version_policy" "k8s_version_policy" {
