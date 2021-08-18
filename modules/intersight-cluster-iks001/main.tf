@@ -1,6 +1,6 @@
 # Looking up Organization MOID
 data "intersight_organization_organization" "orgID" {
-  name = var.org_name
+  name = var.organization
 }
 
 resource "intersight_kubernetes_cluster_profile" "intersight_k8s_cluster_profile" {
