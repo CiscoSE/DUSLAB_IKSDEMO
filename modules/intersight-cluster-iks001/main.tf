@@ -134,11 +134,11 @@ data "intersight_kubernetes_version" "k8s_version" {
 }
 resource "intersight_kubernetes_version_policy" "k8s_version_policy" {
 
-  name = var.k8s_version_name
+  name = "Kubernetes Version ${kubernetes_version}"
   nr_version {
 
     object_type = "kubernetes.Version"
-    moid        = data.intersight_kubernetes_version.k8s_version.moid
+    moid        = data.intersight_kubernetes_version.k8s_version_policy.moid
 
   }
 
