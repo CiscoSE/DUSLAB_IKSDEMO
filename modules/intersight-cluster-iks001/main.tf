@@ -19,7 +19,7 @@ resource "intersight_kubernetes_cluster_profile" "intersight_k8s_cluster_profile
     moid        = data.intersight_organization_organization.orgID.results.0.moid
   }
   cluster_ip_pools {
-    moid = var.ip_pool_moid
+    moid = intersight_ippool_pool.this.moid.IPPOOL.moid
   }
 
 }
