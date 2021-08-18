@@ -1,3 +1,7 @@
+variable "clusterName" {
+  type = string
+  description = "Name of the Kubernetes Cluster"
+}
 variable "apikey" {
   type        = string
   sensitive   = true
