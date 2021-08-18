@@ -59,3 +59,10 @@ variable "netmask" {
 variable "primaryDNS" {
   type        = string
 }
+
+
+#### Sysconfig Variables
+
+variable "DNSDomainName" {
+  type = string
+}

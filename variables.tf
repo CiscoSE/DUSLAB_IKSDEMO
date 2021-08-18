@@ -59,3 +59,7 @@ variable "netmask" {
 variable "primaryDNS" {
   type        = string
 }
+
+variable "DNSDomainName" {
+  type = string
+}

@@ -21,6 +21,7 @@ module "intersight-cluster-iks001" {
     primaryDNS = var.primaryDNS
     IPPoolFromIP = var.IPPoolFromIP
     IPPoolSize = var.IPPoolSize
+    DNSDomainName = var.DNSDomainName
 
 
 }
