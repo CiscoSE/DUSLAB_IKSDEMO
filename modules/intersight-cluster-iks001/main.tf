@@ -103,7 +103,7 @@ resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_p
 
   name        = "NODEGROUPPROF-${var.clusterName}"
   description = "NodeGroupProfile for K8s Cluster ${var.clusterName}"
-  node_type   = ControlPlane
+  node_type   = "ControlPlane"
   desiredsize = var.controlPlaneDesiredSize
   maxsize     = var.controlPlaneMaxSize
   ip_pools {
