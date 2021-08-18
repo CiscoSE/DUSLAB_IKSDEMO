@@ -13,6 +13,7 @@ module "intersight-cluster-iks001" {
     ssh_user = var.ssh_user
     ssh_key = var.ssh_key
     organization = var.organization
+    clusterName = var.clusterName
 
 }
 
