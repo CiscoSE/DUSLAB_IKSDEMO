@@ -39,10 +39,12 @@ variable "tags" {
   type    = list(map(string))
   default = []
 }
+
 variable "loadBalancerCount" {
   type = string
   default = 1
 }
+
 
 #### IP Pool Variables
 
@@ -90,4 +92,14 @@ variable "podNetworkCidr" {
 
 variable "serviceNetworkCidr" {
   type = string
+}
+
+#### Control Plane Node Profile
+
+variable "controlPlaneDesiredSize" {
+  type= string
+}
+
+variable "controlPlaneMaxSize" {
+  type= string
 }

@@ -30,6 +30,9 @@ module "intersight-cluster-iks001" {
     cniType = var.cniType
     podNetworkCidr = var.podNetworkCidr
     serviceNetworkCidr = var.serviceNetworkCidr
+  ### Control Plane Node Group  
+    controlPlaneDesiredSize = var.controlPlaneDesiredSize
+    controlPlaneMaxSize = var.controlPlaneMaxSize
 
 
 

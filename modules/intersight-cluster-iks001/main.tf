@@ -96,3 +96,55 @@ resource "intersight_kubernetes_network_policy" "kubernetes_network_policy1" {
     moid        = data.intersight_organization_organization.orgID.results.0.moid
   }
 }
+
+
+### Cluster Node Profile
+resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_profile_controlplane" {
+
+  name        = "NODEGROUPPROF-${var.clusterName}"
+  description = "NodeGroupProfile for K8s Cluster ${var.clusterName}"
+  node_type   = ControlPlane
+  desiredsize = var.desiredSize
+  maxsize     = var.maxSize
+  ip_pools {
+    object_type = "ippool.Pool"
+    moid        = intersight_ippool_pool.IPPool.moid
+  }
+  kubernetes_version {
+    object_type = "kubernetes.VersionPolicy"
+    moid        = intersight_kubernetes_version_policy.k8s_version.result.0.moid
+  }
+
+  cluster_profile {
+    object_type = "kubernetes.ClusterProfile"
+    moid        = intersight_kubernetes_cluster_profile.intersight_k8s_cluster_profile.results.0.moid
+  }
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.orgID.results.0.moid
+  }
+
+}
+
+#### Version Policy
+
+data "intersight_kubernetes_version" "k8s_version" {
+
+  kubernetes_version = join("", ["v", var.k8s_version])
+}
+resource "intersight_kubernetes_version_policy" "k8s_version_policy" {
+
+  name = var.k8s_version_name
+  nr_version {
+
+    object_type = "kubernetes.Version"
+    moid        = data.intersight_kubernetes_version.k8s_version.results.0.moid
+
+  }
+
+
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.orgID.results.0.moid
+  }
+}
