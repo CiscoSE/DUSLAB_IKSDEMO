@@ -33,6 +33,8 @@ module "intersight-cluster-iks001" {
   ### Control Plane Node Group  
     controlPlaneDesiredSize = var.controlPlaneDesiredSize
     controlPlaneMaxSize = var.controlPlaneMaxSize
+  ### K8S Version 
+    k8sVersion = var.k8sVersion
 
 
 

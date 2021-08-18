@@ -127,18 +127,18 @@ resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_p
 }
 
 #### Version Policy
+resource "intersight_kubernetes_version" "kubernetes_version" {
 
-data "intersight_kubernetes_version" "k8s_version" {
-
-  kubernetes_version = join("", ["v", var.k8s_version])
+  kubernetes_version = var.k8sVersion
 }
+
 resource "intersight_kubernetes_version_policy" "k8s_version_policy" {
 
-  name = "Kubernetes Version ${kubernetes_version}"
+  name = "Kubernetes-Version-${kubernetes_version}"
   nr_version {
 
     object_type = "kubernetes.Version"
-    moid        = data.intersight_kubernetes_version.k8s_version.moid
+    moid        = data.intersight_kubernetes_version.kubernetes_version.moid
 
   }
 

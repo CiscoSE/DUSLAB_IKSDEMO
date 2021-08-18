@@ -105,3 +105,7 @@ variable "controlPlaneMaxSize" {
 }
 
 
+variable "k8Version" {
+  type        = string
+  description = "Version of the Kubernetes cluster"
+}

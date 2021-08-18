@@ -103,7 +103,3 @@ variable "controlPlaneDesiredSize" {
 variable "controlPlaneMaxSize" {
   type= string
 }
-variable "k8s_version" {
-  type        = string
-  description = "Version of the Kubernetes cluster"
-}
