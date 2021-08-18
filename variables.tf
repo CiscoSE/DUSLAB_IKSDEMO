@@ -57,7 +57,7 @@ variable "netmask" {
   type        = string
 }
 variable "primaryDNS" {
-  type        = string
+    type        = list(string)
 }
 
 variable "DNSDomainName" {
