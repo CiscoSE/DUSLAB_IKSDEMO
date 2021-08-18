@@ -1,3 +1,7 @@
+# Looking up Organization MOID
+data "intersight_organization_organization" "orgID" {
+  name = var.org_name
+}
 
 resource "intersight_kubernetes_cluster_profile" "intersight_k8s_cluster_profile" {
   description = "Terraform deployed K8s Cluster" 
