@@ -112,7 +112,7 @@ resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_p
   }
   kubernetes_version {
     object_type = "kubernetes.VersionPolicy"
-    moid        = intersight_kubernetes_version_policy.k8s_version.result.0.moid
+    moid        = intersight_kubernetes_version_policy.k8s_version_policy.result.0.moid
   }
 
   cluster_profile {
