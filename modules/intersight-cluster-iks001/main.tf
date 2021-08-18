@@ -14,9 +14,6 @@ resource "intersight_kubernetes_cluster_profile" "intersight_k8s_cluster_profile
     object_type = "organization.Organization"
     moid        = var.organization
   }
-  workflow_info {
-    object_type = "workflow.WorkflowInfo"
-    moid        = var.workflow_workflow_info
-  }
+
 }
 
