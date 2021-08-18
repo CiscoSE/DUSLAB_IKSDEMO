@@ -18,6 +18,9 @@ resource "intersight_kubernetes_cluster_profile" "intersight_k8s_cluster_profile
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.orgID.results.0.moid
   }
+  cluster_ip_pools {
+    moid = var.ip_pool_moid
+  }
 
 }
 
@@ -40,7 +43,7 @@ resource "intersight_ippool_pool" "IPPool" {
   }
   organization {
     object_type = "organization.Organization"
-    moid        = var.organization
+    moid        = data.intersight_organization_organization.orgID.results.0.moid
   }
 
 }
