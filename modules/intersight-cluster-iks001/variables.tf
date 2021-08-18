@@ -77,6 +77,9 @@ variable "NTPServers" {
 
 
 #### Network Config Variables
+variable "cniType" {
+  type = string
+}
 
 variable "podNetworkCidr" {
   type = string
