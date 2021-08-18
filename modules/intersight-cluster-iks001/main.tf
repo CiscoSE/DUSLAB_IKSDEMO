@@ -104,8 +104,8 @@ resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_p
   name        = "NODEGROUPPROF-${var.clusterName}"
   description = "NodeGroupProfile for K8s Cluster ${var.clusterName}"
   node_type   = ControlPlane
-  desiredsize = var.desiredSize
-  maxsize     = var.maxSize
+  desiredsize = var.controlPlaneDesiredSize
+  maxsize     = var.controlPlaneMaxSize
   ip_pools {
     object_type = "ippool.Pool"
     moid        = intersight_ippool_pool.IPPool.moid
@@ -117,7 +117,7 @@ resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_p
 
   cluster_profile {
     object_type = "kubernetes.ClusterProfile"
-    moid        = intersight_kubernetes_cluster_profile.intersight_k8s_cluster_profile.results.0.moid
+    moid        = intersight_kubernetes_cluster_profile.intersight_k8s_cluster_profile.moid
   }
   organization {
     object_type = "organization.Organization"
@@ -138,7 +138,7 @@ resource "intersight_kubernetes_version_policy" "k8s_version_policy" {
   nr_version {
 
     object_type = "kubernetes.Version"
-    moid        = data.intersight_kubernetes_version.k8s_version.results.0.moid
+    moid        = data.intersight_kubernetes_version.k8s_version.moid
 
   }
 
