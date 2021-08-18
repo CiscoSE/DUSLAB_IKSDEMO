@@ -35,8 +35,8 @@ resource "intersight_ippool_pool" "IPPool" {
     primary_dns = var.primaryDNS
   }
   ip_v4_blocks {
-    from: var.IPPoolFromIP
-    size: var.IPPoolSize
+    from = var.IPPoolFromIP
+    size = var.IPPoolSize
   }
   organization {
     object_type = "organization.Organization"
