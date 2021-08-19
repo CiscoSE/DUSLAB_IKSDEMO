@@ -3,7 +3,7 @@ data "intersight_organization_organization" "orgID" {
   name = var.organization
 }
 
-#### Cluster Profile
+##### Cluster Profile
 
 resource "intersight_kubernetes_cluster_profile" "intersight_k8s_cluster_profile" {
   description = "Terraform deployed K8s Cluster" 
