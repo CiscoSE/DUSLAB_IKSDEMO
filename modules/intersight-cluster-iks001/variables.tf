@@ -110,7 +110,7 @@ variable "vcName" {
 }
 
 variable "vcPortGroup" {
-  type= string
+  type= list(string)
 }
 
 variable "vcDataStore" {
