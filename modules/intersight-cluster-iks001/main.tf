@@ -259,8 +259,5 @@ resource "intersight_kubernetes_addon_definition" "kubernetes_addon_definition1"
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.orgID.results.0.moid
   }
-  parent {
-    moid        = var.kubernetes_catalog
-    object_type = "kubernetes.Catalog"
-  }
+
 }
