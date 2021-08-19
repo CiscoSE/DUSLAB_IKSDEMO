@@ -9,7 +9,7 @@ resource "intersight_kubernetes_cluster_profile" "intersight_k8s_cluster_profile
   description = "Terraform deployed K8s Cluster" 
   name        = var.clusterName
   type        = "instance"
-  action      = "Unassign"
+  action      = "Deploy"
   config_context {
     control_action = "Deploy"
     error_state    = "Pre-config-error"
@@ -229,36 +229,36 @@ resource "intersight_kubernetes_virtual_machine_infrastructure_provider" "inters
 }
 
 
-# Creating addon Policy
-resource "intersight_kubernetes_addon_policy" "intersight_kubernetes_addon_policy_kubernetesdashboard" {
-  name        = "ADDONPOLICY-${var.clusterName}-kubernetesDashboard"
-  description = "ADDONPOLICY for ${var.clusterName}-kubernetesDashboard"
-
-  addon_configuration {
-    install_strategy = "Always"
-    upgrade_strategy = "UpgradeOnly"
-  }
-
-  addon_definition {
-    moid = intersight_kubernetes_addon_definition.kubernetes_addon_definition1.moid
-  }
-
-
-  organization {
-    object_type = "organization.Organization"
-    moid        = data.intersight_organization_organization.orgID.results.0.moid
-  }
-}
-
-resource "intersight_kubernetes_addon_definition" "kubernetes_addon_definition1" {
-  name                     = "kubernetes-dashboard"
-  chart_url = "/opt/ccp/charts/kubernetes-dashboard.tgz"
-  default_install_strategy = "Always"
-  default_namespace        = "iks"
-  default_upgrade_strategy = "UpgradeOnly"
-  organization {
-    object_type = "organization.Organization"
-    moid        = data.intersight_organization_organization.orgID.results.0.moid
-  }
-
-}
+## Creating addon Policy
+#resource "intersight_kubernetes_addon_policy" "intersight_kubernetes_addon_policy_kubernetesdashboard" {
+#  name        = "ADDONPOLICY-${var.clusterName}-kubernetesDashboard"
+#  description = "ADDONPOLICY for ${var.clusterName}-kubernetesDashboard"
+#
+#  addon_configuration {
+#    install_strategy = "Always"
+#    upgrade_strategy = "UpgradeOnly"
+#  }
+#
+#  addon_definition {
+#    moid = intersight_kubernetes_addon_definition.kubernetes_addon_definition1.moid
+#  }
+#
+#
+#  organization {
+#    object_type = "organization.Organization"
+#    moid        = data.intersight_organization_organization.orgID.results.0.moid
+#  }
+#}
+#
+#resource "intersight_kubernetes_addon_definition" "kubernetes_addon_definition1" {
+#  name                     = "kubernetes-dashboard"
+#  chart_url = "/opt/ccp/charts/kubernetes-dashboard.tgz"
+#  default_install_strategy = "Always"
+#  default_namespace        = "iks"
+#  default_upgrade_strategy = "UpgradeOnly"
+#  organization {
+#    object_type = "organization.Organization"
+#    moid        = data.intersight_organization_organization.orgID.results.0.moid
+#  }
+#
+#}
