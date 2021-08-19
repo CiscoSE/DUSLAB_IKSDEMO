@@ -181,7 +181,7 @@ resource "intersight_kubernetes_virtual_machine_infra_config_policy" "intersight
 ##### Virtual Machine Instance Type
 resource "intersight_kubernetes_virtual_machine_instance_type" "intersight_k8s_virtual_machine_instance_type_general" {
 
-  name      = "VIRTINSTANCETYPE-${clusterName}"
+  name      = "VIRTINSTANCETYPE-${var.clusterName}"
   cpu       = 4
   disk_size = 100
   memory    = 8192
