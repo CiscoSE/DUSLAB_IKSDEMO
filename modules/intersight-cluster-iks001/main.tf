@@ -121,7 +121,7 @@ resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_p
   }
 
 ### Cluster Node Profile Worker
-resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_profile_controlplane" {
+resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_profile_worker" {
 
   name        = "NODEGROUPPROF-Worker-${var.clusterName}"
   description = "NodeGroupProfile-Worker for K8s Cluster ${var.clusterName}"
