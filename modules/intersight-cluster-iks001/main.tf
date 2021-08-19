@@ -235,8 +235,8 @@ resource "intersight_kubernetes_addon_policy" "intersight_kubernetes_addon_polic
   description = "ADDONPOLICY for ${var.clusterName}-kubernetesDashboard"
 
   addon_configuration {
-    install_strategy = Always
-    upgrade_strategy = AlwaysReinstall
+    install_strategy = "Always"
+    upgrade_strategy = "AlwaysReinstall"
   }
 
   addon_definition {
