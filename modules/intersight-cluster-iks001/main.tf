@@ -197,14 +197,14 @@ resource "intersight_kubernetes_virtual_machine_infrastructure_provider" "inters
   description = var.description
 
   node_group {
-    moid = data.intersight_kubernetes_node_group_profile.intersight_k8s_node_group_profile_controlplane.moid
+    moid = data.intersight_kubernetes_node_group_profile.intersight_k8s_node_group_profile_controlplane.results.0.moid
   }
   instance_type {
 
-    moid = data.intersight_kubernetes_virtual_machine_instance_type.intersight_k8s_virtual_machine_instance_type_general.data
+    moid = data.intersight_kubernetes_virtual_machine_instance_type.intersight_k8s_virtual_machine_instance_type_general.results.0.moid
   }
   infra_config_policy {
-    moid = data.intersight_kubernetes_virtual_machine_infrastructure_provider.data.intersight_k8s_virtual_machine_infra_config_policy.moid
+    moid = data.intersight_kubernetes_virtual_machine_infrastructure_provider.data.intersight_k8s_virtual_machine_infra_config_policy.results.0.moid
   }
 
 
