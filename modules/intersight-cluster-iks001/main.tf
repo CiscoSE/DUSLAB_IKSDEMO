@@ -150,7 +150,7 @@ resource "intersight_kubernetes_version_policy" "k8s_version_policy" {
 #### Virtual Machine Infra Config Policy
 
 # Looking up Asset Target
-data "intersight_asset_target" "this" {
+data "intersight_asset_target" "intersight_asset_target1" {
   name = var.vcName
 }
 
@@ -169,7 +169,7 @@ resource "intersight_kubernetes_virtual_machine_infra_config_policy" "intersight
   }
   target {
     object_type = "asset.DeviceRegistration"
-    moid        = data.intersight_asset_target.intersight_k8s_virtual_machine_infra_config_policy.results.0.registered_device[0].moid
+    moid        = data.intersight_asset_target.intersight_asset_target1.results.0.registered_device[0].moid
   }
 
   organization {
