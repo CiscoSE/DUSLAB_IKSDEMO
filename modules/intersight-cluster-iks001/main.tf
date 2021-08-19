@@ -236,7 +236,7 @@ resource "intersight_kubernetes_addon_policy" "intersight_kubernetes_addon_polic
 
   addon_configuration {
     install_strategy = "Always"
-    upgrade_strategy = "AlwaysReinstall"
+    upgrade_strategy = "UpgradeOnly"
   }
 
   addon_definition {
@@ -252,9 +252,15 @@ resource "intersight_kubernetes_addon_policy" "intersight_kubernetes_addon_polic
 
 resource "intersight_kubernetes_addon_definition" "kubernetes_addon_definition1" {
   name                     = "kubernetes-dashboard"
+  default_install_strategy = "Always"
+  default_namespace        = "iks"
+  default_upgrade_strategy = "UpgradeOnly"
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.orgID.results.0.moid
   }
-
+  parent {
+    moid        = var.kubernetes_catalog
+    object_type = "kubernetes.Catalog"
+  }
 }
