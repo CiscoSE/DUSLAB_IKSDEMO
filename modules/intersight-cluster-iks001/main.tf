@@ -240,7 +240,7 @@ resource "intersight_kubernetes_addon_policy" "intersight_kubernetes_addon_polic
   }
 
   addon_definition {
-    name = "kubernetes-dashboard"
+    name = intersight_kubernetes_addon_definition.kubernetes_addon_definition1.moid
   }
 
 
@@ -248,4 +248,13 @@ resource "intersight_kubernetes_addon_policy" "intersight_kubernetes_addon_polic
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.orgID.results.0.moid
   }
+}
+
+resource "intersight_kubernetes_addon_definition" "kubernetes_addon_definition1" {
+  name                     = "kubernetes-dashboard"
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.orgID.results.0.moid
+  }
+
 }
