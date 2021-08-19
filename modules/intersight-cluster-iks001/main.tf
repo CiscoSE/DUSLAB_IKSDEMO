@@ -146,3 +146,34 @@ resource "intersight_kubernetes_version_policy" "k8s_version_policy" {
     moid        = data.intersight_organization_organization.orgID.results.0.moid
   }
 }
+
+#### Virtual Machine Infra Config Policy
+
+# Looking up Asset Target
+data "intersight_asset_target" "this" {
+  name = var.vcName
+}
+
+resource "intersight_kubernetes_virtual_machine_infra_config_policy" "intersight_k8s_virtual_machine_infra_config_policy" {
+  name        = "VMINFRACONFIGPOL-${var.clusterName}"
+  description = "VM Virtual Infra Config Policy for K8s Cluster ${var.clusterName}"
+  vm_config {
+    object_type = "kubernetes.EsxiVirtualMachineInfraConfig"
+    interfaces  = var.vcPortGroup
+    additional_properties = jsonencode({
+      Datastore    = var.vcDataStore
+      Cluster      = var.vcCluster
+      Passphrase   = var.vcPassword
+      ResourcePool = var.vcResourcePool
+    })
+  }
+  target {
+    object_type = "asset.DeviceRegistration"
+    moid        = data.intersight_asset_target.intersight_k8s_virtual_machine_infra_config_policy.results.0.registered_device[0].moid
+  }
+
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.orgID.results.0.moid
+  }
+}

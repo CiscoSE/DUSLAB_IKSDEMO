@@ -107,3 +107,30 @@ variable "k8sVersion" {
   type        = string
   description = "Version of the Kubernetes cluster"
 }
+
+#### VM Infra Config Policy Var
+variable "vcName" {
+  type= string
+}
+
+variable "vcPortGroup" {
+  type= string
+}
+
+variable "vcDataStore" {
+  type= string
+}
+
+variable "vcCluster" {
+  type= string
+}
+
+variable "vcPassword" {
+  type= string
+  sensitive = true
+}
+
+variable "vcResourcePool" {
+  type= string
+  sensitive = true
+}

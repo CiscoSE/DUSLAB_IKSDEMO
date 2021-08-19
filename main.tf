@@ -35,6 +35,14 @@ module "intersight-cluster-iks001" {
     controlPlaneMaxSize = var.controlPlaneMaxSize
   ### K8S Version 
     k8sVersion = var.k8sVersion
+  ### VC Infra Config 
+    vcName = var.vcName
+    vcCluster = var.vcCluster
+    vcDataStore = var.vcDataStore
+    vcResourcePool = var.vcResourcePool
+    vcPortGroup = var.vcPortGroup
+    vcPassword = var.vcPassword
+
 
 
 
