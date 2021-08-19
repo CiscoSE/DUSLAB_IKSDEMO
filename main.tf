@@ -5,8 +5,8 @@ provider "intersight" {
 }
 ####
 
-module "intersight-cluster-iks001" {
-    source = "./modules/intersight-cluster-iks001"
+module "intersight-cluster-iks" {
+    source = "./modules/intersight-cluster-iks"
     apikey = var.apikey
     secretkey = var.secretkey
     
