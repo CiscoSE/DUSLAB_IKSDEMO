@@ -252,6 +252,7 @@ resource "intersight_kubernetes_addon_policy" "intersight_kubernetes_addon_polic
 
 resource "intersight_kubernetes_addon_definition" "kubernetes_addon_definition1" {
   name                     = "kubernetes-dashboard"
+  chart_url = "/opt/ccp/charts/kubernetes-dashboard.tgz"
   default_install_strategy = "Always"
   default_namespace        = "iks"
   default_upgrade_strategy = "UpgradeOnly"
