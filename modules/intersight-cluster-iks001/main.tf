@@ -132,7 +132,10 @@ resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_p
     object_type = "ippool.Pool"
     moid        = intersight_ippool_pool.IPPool.moid
   }
-
+  kubernetes_version {
+    object_type = "kubernetes.VersionPolicy"
+    moid        = intersight_kubernetes_version_policy.k8s_version_policy.moid
+  }
   cluster_profile {
     object_type = "kubernetes.ClusterProfile"
     moid        = intersight_kubernetes_cluster_profile.intersight_k8s_cluster_profile.moid
