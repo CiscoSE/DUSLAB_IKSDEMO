@@ -104,6 +104,20 @@ variable "k8sVersion" {
   description = "Version of the Kubernetes cluster"
 }
 
+#### Worker Node Profile
+
+variable "workerDesiredSize" {
+  type= string
+}
+
+variable "workerMaxSize" {
+  type= string
+}
+variable "k8sVersion" {
+  type        = string
+  description = "Version of the Kubernetes cluster"
+}
+
 #### VM Infra Config Policy Var
 variable "vcName" {
   type= string
@@ -130,3 +144,4 @@ variable "vcResourcePool" {
   type= string
   sensitive = true
 }
+

@@ -98,11 +98,11 @@ resource "intersight_kubernetes_network_policy" "kubernetes_network_policy1" {
 }
 
 
-### Cluster Node Profile
+### Cluster Node Profile ControlPlane
 resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_profile_controlplane" {
 
-  name        = "NODEGROUPPROF-${var.clusterName}"
-  description = "NodeGroupProfile for K8s Cluster ${var.clusterName}"
+  name        = "NODEGROUPPROF-ControlPlane-${var.clusterName}"
+  description = "NodeGroupProfile-ControlPlane for K8s Cluster ${var.clusterName}"
   node_type   = "ControlPlane"
   desiredsize = var.controlPlaneDesiredSize
   maxsize     = var.controlPlaneMaxSize
@@ -120,6 +120,23 @@ resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_p
     moid        = intersight_kubernetes_cluster_profile.intersight_k8s_cluster_profile.moid
   }
 
+### Cluster Node Profile Worker
+resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_profile_controlplane" {
+
+  name        = "NODEGROUPPROF-Worker-${var.clusterName}"
+  description = "NodeGroupProfile-Worker for K8s Cluster ${var.clusterName}"
+  node_type   = "Worker"
+  desiredsize = var.workerDesiredSize
+  maxsize     = var.workerMaxSize
+  ip_pools {
+    object_type = "ippool.Pool"
+    moid        = intersight_ippool_pool.IPPool.moid
+  }
+
+  cluster_profile {
+    object_type = "kubernetes.ClusterProfile"
+    moid        = intersight_kubernetes_cluster_profile.intersight_k8s_cluster_profile.moid
+  }
 
 
 }
@@ -209,3 +226,7 @@ resource "intersight_kubernetes_virtual_machine_infrastructure_provider" "inters
 
 
 }
+
+
+#### Worker Node Pool Config
+
