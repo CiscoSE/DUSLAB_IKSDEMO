@@ -142,6 +142,3 @@ variable "vcResourcePool" {
   sensitive = true
 }
 #### Addon Policy
-variable "addon" {
-  type= list(string)
-}

@@ -228,33 +228,21 @@ resource "intersight_kubernetes_virtual_machine_infrastructure_provider" "inters
   }
 }
 
-data "intersight_kubernetes_addon_definition" "this" {
-  for_each = { for addon in var.addon : addon.addon_policy_name => addon }
-  name     = each.value.addon
-}
-# Creating addon Policy
-resource "intersight_kubernetes_addon_policy" "this" {
 
-  for_each    = { for addon in var.addon : addon.addon_policy_name => addon }
-  name        = each.value.addon_policy_name
-  description = each.value.description
+# Creating addon Policy
+resource "intersight_kubernetes_addon_policy" "intersight_kubernetes_addon_policy_kubernetesdashboard" {
+  name        = "ADDONPOLICY-${var.clusterName}-kubernetesDashboard"
+  description = "ADDONPOLICY for ${var.clusterName}-kubernetesDashboard"
 
   addon_configuration {
-    install_strategy = each.value.install_strategy
-    upgrade_strategy = each.value.upgrade_strategy
+    install_strategy = Always
+    upgrade_strategy = AlwaysReinstall
   }
 
   addon_definition {
-    moid = data.intersight_kubernetes_addon_definition.this[each.key].results.0.moid
+    name = kubernetes-dashboard
   }
 
-  dynamic "tags" {
-    for_each = var.tags
-    content {
-      key   = tags.value["key"]
-      value = tags.value["value"]
-    }
-  }
 
   organization {
     object_type = "organization.Organization"
