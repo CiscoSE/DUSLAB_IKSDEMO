@@ -235,7 +235,7 @@ data "intersight_kubernetes_addon_definition" "this" {
 # Creating addon Policy
 resource "intersight_kubernetes_addon_policy" "this" {
 
-  for_each    = { for addon in var.addons : addon.addon_policy_name => addon }
+  for_each    = { for addon in var.addon : addon.addon_policy_name => addon }
   name        = each.value.addon_policy_name
   description = each.value.description
 
