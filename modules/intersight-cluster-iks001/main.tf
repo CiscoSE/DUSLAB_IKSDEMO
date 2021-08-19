@@ -240,7 +240,7 @@ resource "intersight_kubernetes_addon_policy" "intersight_kubernetes_addon_polic
   }
 
   addon_definition {
-    name = kubernetes-dashboard
+    name = "kubernetes-dashboard"
   }
 
 
