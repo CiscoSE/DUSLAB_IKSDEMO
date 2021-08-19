@@ -120,6 +120,10 @@ resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_p
     moid        = intersight_kubernetes_cluster_profile.intersight_k8s_cluster_profile.moid
   }
 
+  infra_config_policy {
+    object_type = "kubernetes.kubernetes.EsxiVirtualMachineInfraConfig"
+    moid = data.intersight_kubernetes_virtual_machine_infra_config_policy.intersight_k8s_virtual_machine_infra_config_policy.moid
+  }
 
 }
 
