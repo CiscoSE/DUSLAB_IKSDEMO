@@ -101,7 +101,7 @@ resource "intersight_kubernetes_network_policy" "kubernetes_network_policy1" {
 ### Cluster Node Profile ControlPlane
 resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_profile_controlplane" {
 
-  name        = "NODEGROUPPROF-ControlPlane-${var.clusterName}"
+  name        = "NODEGROUPPROFC-${var.clusterName}"
   description = "NodeGroupProfile-ControlPlane for K8s Cluster ${var.clusterName}"
   node_type   = "ControlPlane"
   desiredsize = var.controlPlaneDesiredSize
@@ -123,7 +123,7 @@ resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_p
 ### Cluster Node Profile Worker
 resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_profile_worker" {
 
-  name        = "NODEGROUPPROF-Worker-${var.clusterName}"
+  name        = "NODEGROUPPROFW-${var.clusterName}"
   description = "NodeGroupProfile-Worker for K8s Cluster ${var.clusterName}"
   node_type   = "Worker"
   desiredsize = var.workerDesiredSize
