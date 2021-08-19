@@ -193,8 +193,8 @@ resource "intersight_kubernetes_virtual_machine_instance_type" "intersight_k8s_v
 
 #### Virtual Machine infrastructure provider
 resource "intersight_kubernetes_virtual_machine_infrastructure_provider" "intersight_k8s_virtual_machine_infrastructure_provider_controlplane" {
-  name        = var.name
-  description = var.description
+  name        = "VIRTINFRAPROVIDER-${var.clusterName}"
+  description = "VM Virtual Infrastructure Provider for K8s Cluster ${var.clusterName}"
 
   node_group {
     moid = intersight_kubernetes_node_group_profile.intersight_k8s_node_group_profile_controlplane.moid
