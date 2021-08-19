@@ -229,7 +229,7 @@ resource "intersight_kubernetes_virtual_machine_infrastructure_provider" "inters
 }
 
 data "intersight_kubernetes_addon_definition" "this" {
-  for_each = { for addon in var.addons : addon.addon_policy_name => addon }
+  for_each = { for addon in var.addon : addon.addon_policy_name => addon }
   name     = each.value.addon
 }
 # Creating addon Policy
