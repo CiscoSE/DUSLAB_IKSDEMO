@@ -121,25 +121,25 @@ resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_p
   }
 
 ### Cluster Node Profile Worker
-resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_profile_worker" {
-
-  name        = "NODEGROUPPROF-Worker-${var.clusterName}"
-  description = "NodeGroupProfile-Worker for K8s Cluster ${var.clusterName}"
-  node_type   = "Worker"
-  desiredsize = var.workerDesiredSize
-  maxsize     = var.workerMaxSize
-  ip_pools {
-    object_type = "ippool.Pool"
-    moid        = intersight_ippool_pool.IPPool.moid
-  }
-
-  cluster_profile {
-    object_type = "kubernetes.ClusterProfile"
-    moid        = intersight_kubernetes_cluster_profile.intersight_k8s_cluster_profile.moid
-  }
-
-
-}
+#resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_profile_worker" {
+#
+#  name        = "NODEGROUPPROF-Worker-${var.clusterName}"
+#  description = "NodeGroupProfile-Worker for K8s Cluster ${var.clusterName}"
+#  node_type   = "Worker"
+#  desiredsize = var.workerDesiredSize
+#  maxsize     = var.workerMaxSize
+#  ip_pools {
+#    object_type = "ippool.Pool"
+#    moid        = intersight_ippool_pool.IPPool.moid
+#  }
+#
+#  cluster_profile {
+#    object_type = "kubernetes.ClusterProfile"
+#    moid        = intersight_kubernetes_cluster_profile.intersight_k8s_cluster_profile.moid
+#  }
+#
+#
+#}
 
 #### Version Policy
 data "intersight_kubernetes_version" "kubernetes_version1" {
