@@ -240,7 +240,7 @@ resource "intersight_kubernetes_addon_policy" "intersight_kubernetes_addon_polic
   }
 
   addon_definition {
-    name = intersight_kubernetes_addon_definition.kubernetes_addon_definition1.moid
+    moid = intersight_kubernetes_addon_definition.kubernetes_addon_definition1.moid
   }
 
 
