@@ -142,12 +142,3 @@ variable "vcResourcePool" {
   sensitive = true
 }
 #### Addon Policy
-variable "addons" {
-  description = "Addons to be created and added to the cluster"
-  type = list(object({
-    addon_policy_name = string
-    addon             = string
-    description       = string
-    upgrade_strategy  = string
-    install_strategy  = string
-  }))
