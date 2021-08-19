@@ -45,6 +45,8 @@ module "intersight-cluster-iks001" {
     vcResourcePool = var.vcResourcePool
     vcPortGroup = var.vcPortGroup
     vcPassword = var.vcPassword
+  ### Addon Policy
+    addon = var.addon
 
 
 
