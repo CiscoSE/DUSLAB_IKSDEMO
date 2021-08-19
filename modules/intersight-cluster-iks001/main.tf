@@ -226,7 +226,3 @@ resource "intersight_kubernetes_virtual_machine_infrastructure_provider" "inters
 
 
 }
-
-
-#### Worker Node Pool Config
-
