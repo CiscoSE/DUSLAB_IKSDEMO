@@ -120,10 +120,7 @@ resource "intersight_kubernetes_node_group_profile" "intersight_k8s_node_group_p
     moid        = intersight_kubernetes_cluster_profile.intersight_k8s_cluster_profile.moid
   }
 
-  infra_config_policy {
-    object_type = "kubernetes.kubernetes.EsxiVirtualMachineInfraConfig"
-    moid = data.intersight_kubernetes_virtual_machine_infra_config_policy.intersight_k8s_virtual_machine_infra_config_policy.moid
-  }
+
 
 }
 
@@ -180,4 +177,35 @@ resource "intersight_kubernetes_virtual_machine_infra_config_policy" "intersight
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.orgID.results.0.moid
   }
+}
+##### Virtual Machine Instance Type
+resource "intersight_kubernetes_virtual_machine_instance_type" "intersight_k8s_virtual_machine_instance_type_general" {
+
+  name      = "VIRTINSTANCETYPE-${clusterName}"
+  cpu       = 4
+  disk_size = 100
+  memory    = 8192
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.orgID.results.0.moid
+  }
+}
+
+#### Virtual Machine infrastructure provider
+resource "intersight_kubernetes_virtual_machine_infrastructure_provider" "intersight_k8s_virtual_machine_infrastructure_provider_controlplane" {
+  name        = var.name
+  description = var.description
+
+  node_group {
+    moid = data.intersight_kubernetes_node_group_profile.intersight_k8s_node_group_profile_controlplane.moid
+  }
+  instance_type {
+
+    moid = data.intersight_kubernetes_virtual_machine_instance_type.intersight_k8s_virtual_machine_instance_type_general.data
+  }
+  infra_config_policy {
+    moid = data.intersight_kubernetes_virtual_machine_infrastructure_provider.data.intersight_k8s_virtual_machine_infra_config_policy.moid
+  }
+
+
 }
