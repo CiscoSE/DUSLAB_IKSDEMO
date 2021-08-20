@@ -3,44 +3,6 @@ data "intersight_organization_organization" "orgID" {
   name = var.organization
 }
 
-##### Cluster Profile
-
-resource "intersight_kubernetes_cluster_profile" "intersight_k8s_cluster_profile" {
-  description = "Terraform deployed K8s Cluster" 
-  name        = var.clusterName
-  type        = "instance"
-  action      = "Deploy"
-  config_context {
-    control_action = "Deploy"
-    error_state    = "Pre-config-error"
-  }
-  managed_mode = "Managed"
-  status       = "Deploying"
-  organization {
-    object_type = "organization.Organization"
-    moid        = data.intersight_organization_organization.orgID.results.0.moid
-  }
-  ### Management Config
-  management_config {
-    load_balancer_count = var.loadBalancerCount
-    ssh_keys = [
-      var.ssh_key
-    ]
-    ssh_user = var.ssh_user
-  }
-  ### IP Pool Association
-  cluster_ip_pools {
-    moid = intersight_ippool_pool.IPPool.moid
-  }
-  ### Sysconfig Association
-  sys_config {
-    moid = intersight_kubernetes_sys_config_policy.kubernetes_sys_config_policy1.moid
-  }
-  ### Networkconfig Association
-  net_config{
-     moid = intersight_kubernetes_network_policy.kubernetes_network_policy1.moid
-  }
-}
 
 #### Configure IP Pool
 
@@ -262,3 +224,42 @@ resource "intersight_kubernetes_virtual_machine_infrastructure_provider" "inters
 #  }
 #
 #}
+
+##### Cluster Profile
+
+resource "intersight_kubernetes_cluster_profile" "intersight_k8s_cluster_profile" {
+  description = "Terraform deployed K8s Cluster" 
+  name        = var.clusterName
+  type        = "instance"
+  action      = "Deploy"
+  config_context {
+    control_action = "Deploy"
+    error_state    = "Pre-config-error"
+  }
+  managed_mode = "Managed"
+  status       = "Deploying"
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.orgID.results.0.moid
+  }
+  ### Management Config
+  management_config {
+    load_balancer_count = var.loadBalancerCount
+    ssh_keys = [
+      var.ssh_key
+    ]
+    ssh_user = var.ssh_user
+  }
+  ### IP Pool Association
+  cluster_ip_pools {
+    moid = intersight_ippool_pool.IPPool.moid
+  }
+  ### Sysconfig Association
+  sys_config {
+    moid = intersight_kubernetes_sys_config_policy.kubernetes_sys_config_policy1.moid
+  }
+  ### Networkconfig Association
+  net_config{
+     moid = intersight_kubernetes_network_policy.kubernetes_network_policy1.moid
+  }
+}
