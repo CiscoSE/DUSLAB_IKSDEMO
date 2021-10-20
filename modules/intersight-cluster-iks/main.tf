@@ -188,9 +188,6 @@ resource "intersight_kubernetes_virtual_machine_infrastructure_provider" "inters
   infra_config_policy {
     moid = intersight_kubernetes_virtual_machine_infra_config_policy.intersight_k8s_virtual_machine_infra_config_policy.moid
   }
-  depends_on = [
-  intersight_kubernetes_virtual_machine_instance_type.intersight_k8s_virtual_machine_instance_type_general
-]
 
 }
 
@@ -266,8 +263,5 @@ resource "intersight_kubernetes_cluster_profile" "intersight_k8s_cluster_profile
   net_config{
      moid = intersight_kubernetes_network_policy.kubernetes_network_policy1.moid
   }
-depends_on = [
-  intersight_kubernetes_virtual_machine_infrastructure_provider.intersight_k8s_virtual_machine_infrastructure_provider_controlplane
-]
 
 }
